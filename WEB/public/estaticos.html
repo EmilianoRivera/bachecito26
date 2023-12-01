@@ -1,0 +1,48 @@
+<!--Aqui están el navbar y el iframe para mostrarlo en todos lados-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACHECITO 26</title>
+    <link rel="icon" href="https://i.postimg.cc/jSkmnHwG/Icono-Pagina.png">
+    <link rel="stylesheet" href="./CSS/estaticos.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;700&display=swap">
+</head>
+<header>
+    <div class="navBar" id="mainNavBar">
+        <a target="MainFrame" href="#" class="bachecito26">
+          <img src="https://i.postimg.cc/bNqK70pJ/logo-naranja.png" class="logo">BACHECITO 26
+        </a>
+        <a target="MainFrame" class="opc" href="./sobreNosotros.html">Sobre Nosotros</a>
+        <a target="MainFrame" class="opc" href="./reportes.html">Reportes</a>
+        <a target="MainFrame" class="opc" href="./index.html">Inicio</a>
+        
+        <a target="MainFrame" class="opc btn--white prueba" href="./Inicios/Cuenta.html"><span>Cuenta →</span></a>
+      
+        <a href="#" class="icon" id="menuIcon">&#9776;</a>
+    </div>
+</header>
+<body>
+
+    <div class="contenedor">
+        <iframe id="MainFrame" name="MainFrame" src="index.html" width="900" height="auto" >
+            
+        </iframe>
+    </div>
+
+    <div id="preloader"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#menuIcon").click(function (event) {
+          event.preventDefault();
+          $("#mainNavBar a:not(:first-child)").toggleClass("show");
+        });
+      });
+    </script>
+</body>
+</html>

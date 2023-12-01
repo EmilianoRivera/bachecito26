@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <title>Log-in</title>
+    <link rel="stylesheet" href="../CSS/inicio.css">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="form">
+                <form id="loginForm">
+                    <h1>¡HOLA DE NUEVO!</h1><br>
+                    <input type="text" id="username" name="username" placeholder="Correo">
+                    <input type="password" id="password" name="password" placeholder="Contraseña"> 
+                    <br>
+                    <a id="forgotPasswordBtn">¿Olvidaste tu contraseña?</a>
+                    <br><br><br>
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+                <script type="module" src="./login.js"></script>
+            </div>
+            <div class="image" style="background-image:url('https://i.postimg.cc/L8VQZNn2/zyro-image-23.jpg'); background-size: cover; background-position: center;">
+            <div class="capa">
+                <h2>¿No tienes una cuenta? <br> <a class="h2" href="./Registro.html" target="_blank">¡Crea una ahora!</a></h2>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            var loginForm = document.getElementById("loginForm");
+            var usernameInput = document.getElementById("username");
+            var passwordInput = document.getElementById("password");
+            var h1Element = document.querySelector("h1");
+            var submitButton = document.querySelector("button");
+            var forgotPasswordLink = document.getElementById("forgotPasswordBtn");
+
+            function updateColors() {
+                if (usernameInput.value !== "" && passwordInput.value !== "") {
+                    h1Element.style.color = "#FF4D35"; 
+                    submitButton.style.backgroundColor = "#FF4D35"; 
+                    submitButton.style.borderColor = "#FF4D35"; 
+                    forgotPasswordLink.style.color = "#FF4D35"; 
+                } else {
+                    h1Element.style.color = "#6F6F6F"; 
+                    submitButton.style.backgroundColor = "#6F6F6F"; 
+                    submitButton.style.borderColor = "#6F6F6F"; 
+                    forgotPasswordLink.style.color = "#6F6F6F"; 
+                }
+            }
+
+            loginForm.addEventListener("input", updateColors);
+
+            loginForm.addEventListener("submit", function(event) {
+                event.preventDefault(); 
+                updateColors();
+            });
+
+            passwordInput.addEventListener("focus", function() {
+                forgotPasswordLink.style.color = "#FF4D35"; 
+            });
+
+            passwordInput.addEventListener("blur", function() {
+                if (usernameInput.value === "" && passwordInput.value === "") {
+                    forgotPasswordLink.style.color = "#6F6F6F"; 
+                }
+            });
+        });
+    </script>
+</body>
+</html>

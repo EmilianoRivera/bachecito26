@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Cuenta</title>
+        <link rel="icon" href="https://i.postimg.cc/jSkmnHwG/Icono-Pagina.png">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+        <link rel="stylesheet" href="../CSS/cuenta.css">
+    </head>
+    <body>
+        <div class="container" id="cont">
+            <img src="https://i.pinimg.com/564x/79/b8/02/79b802f32f314f6f4a8966ce54fb892a.jpg" width="250px">
+            <br>
+            <h1>¡Hola! ¿Qué te gustaría hacer?</h1>
+            <br>
+            <a class="Registro" href="../Inicios/Registro.html" target="_blank">Registrarme</a>
+            <a href="../Inicios/Inicio.html" target="_blank">Iniciar Sesión</a>
+        </div>
+    <div class="background" id="background"></div>
+    <script>
+        const numOfBall = 30;
+        const minBallSize = 30;
+        const maxBallSize = 100;
+        const boxWidth = 2000;
+        const boxHeight = 1000;
+        const boxBorderSize = 5;
+        const speed = 100; // Milliseconds
+        const color = [
+        "#FFD557",
+        "#FFB64F",
+        "#FF9F49",
+        "#FF7A3E",
+        "#FF4D35",
+        ];
+        var posX = [];
+        var posY = [];
+        var maxX = [];
+        var maxY = [];
+        var goUp = [];
+        var goLeft = [];
+        var moveX = [];
+        var moveY = [];
+
+        // --- Create HTML -- //
+        var box = document.getElementById('background')
+
+        // Balls
+        for (let i = 0; i < numOfBall; i++) {
+        box.insertAdjacentHTML('beforeend', '<div class="circle"></div>');
+        }
+
+        document.body.appendChild(box);
+        const circle = document.getElementsByClassName("circle");
+
+        // -- Funtions -- //
+        function getRndInteger(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        function frame(c, i) {
+        // Move Y axis
+        if (goUp[i]) {
+            posY[i] -= moveY[i];
+            c.style.top = posY[i] + "px";
+            if (posY[i] < 0) {
+            posY[i] = 0;
+            goUp[i] = false;
+            }
+        }
+        else {
+            posY[i] += moveY[i];
+            c.style.top = posY[i] + "px";
+            if (posY[i] > maxY[i]) {
+            posY[i] = maxY[i] - getRndInteger(1, 4 + 1);
+            goUp[i] = true;
+            }
+        }
+        
+        // Move X axis
+        if (goLeft[i]) {
+            posX[i] -= moveX[i];
+            c.style.left = posX[i] + "px";
+            if (posX[i] < 0) {
+            posX[i] = 0;
+            goLeft[i] = false;
+            }
+        }
+        else {
+            posX[i] += moveX[i];
+            c.style.left = posX[i] + "px";
+            if (posX[i] > maxX[i]) {
+            posX[i] = maxX[i] - getRndInteger(1, 4 + 1);
+            goLeft[i] = true;
+            }
+        }
+        }
+
+        function init() {
+        for (let i = 0; i < numOfBall; i++) {
+            
+            // Random Ball Size
+            let ballSize = getRndInteger(minBallSize, maxBallSize + 1);
+            circle[i].style.width = ballSize + "px";
+            circle[i].style.height = ballSize + "px";
+            
+            // Random Color
+            let colorId = getRndInteger(0, color.length + 1);
+            circle[i].style.background = color[colorId];
+            
+            // Random Speed
+            moveX[i] = getRndInteger(1, 4 + 1);
+            moveY[i] = getRndInteger(1, 4 + 1);
+            
+            // Calulate MaxX and MaxY
+            maxX[i] = boxWidth - (boxBorderSize * 2) - ballSize;
+            maxY[i] = boxHeight - (boxBorderSize * 2) - ballSize;
+            
+            // Random Positon
+            posX[i] = getRndInteger(0, maxX[i]);
+            posY[i] = getRndInteger(0, maxY[i]);
+            goUp[i] = getRndInteger(0, 1 + 1);
+            goLeft[i] = getRndInteger(0, 1 + 1);
+            
+            // Smooth Transition
+            circle[i].style.transition = "all linear " + speed + "ms";
+            
+            // Move the Balls
+            setInterval(function() { frame(circle[i], i) }, speed);
+        }
+        
+        // Check variables
+        console.log(circle);
+        console.log(posX);
+        console.log(posY);
+        console.log(goUp);
+        console.log(goLeft);
+        }
+
+        init();
+    </script>
+    </body>
+</html>
