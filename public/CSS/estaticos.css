@@ -1,0 +1,150 @@
+/*Este es el css para el navbar y el footer que van a permanecer estáticos*/
+body {
+    margin: 0;
+    padding: 0;
+    }
+    
+    html{
+        background-color: #ffffff;
+        overflow: hidden;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+    
+    iframe {
+        border: none;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+    }
+    
+    .navBar {
+        background-color: #ffffffee;
+        overflow: hidden;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+      }
+    
+      .navBar a {
+        float: left;
+        color: #6F6F6F;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 120%;
+        font-weight: bolder;
+        font-family: 'Nunito', sans-serif;
+        position: relative;
+      }
+    
+      .navBar a:hover {
+        color: #FF9F49;
+        transition: color 0.3s ease-in-out;
+      }
+    
+      .navBar a:hover:after {
+        width: 100%;
+        left: 0;
+      }
+    
+      .navBar a:after {
+        background: none repeat scroll 0 0 transparent;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 2px;
+        left: 50%;
+        position: absolute;
+        background: #FF9F49;
+        transition: width 0.3s ease 0s, left 0.5s ease 0s;
+        width: 0;
+      }
+      .navBar .opc {
+        float: right; 
+        padding-top: 1.5%;
+      }
+    
+      .navBar .icon {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    
+      /* Estilos específicos para el enlace "Bachecito 26" */
+      .navBar a.bachecito26 {
+        color: #FF9F49; 
+        font-weight: bolder;
+        border-radius: 5px; 
+        font-size: 160%;
+        font-family: 'Alegreya Sans SC', sans-serif;
+      }
+    
+      .navBar a.bachecito26 span {
+        margin-left: 5px;
+      }
+    
+      .navBar img.logo {
+        height: 30px;
+        margin-right: 10px; 
+        top: 5px;
+        display: inline-block;
+        position: relative; 
+      }
+    
+      @media (max-width: 700px) {
+        .navBar a:not(:first-child) {
+          display: none;
+        }
+    
+        .navBar a.icon {
+          display: block;
+          padding-top: 4.5%;
+        }
+    
+        .navBar a.show {
+          display: block;
+          clear: both;
+        }
+      }
+    
+      @media screen and (max-height: 300px) {
+        .navBar {
+          margin-top: 40px;
+        }
+      }
+    
+    body::-webkit-scrollbar{
+        width: 0px;
+        height: 100%;
+        background:#d0f4de;
+    }
+    
+    .opc.btn--white{
+        background-color: #FF9F49;
+        margin-top: 10px;
+        width: 100px;
+        height: 10px;
+        border: 1px transparent;
+        color: #fff;
+        border-radius: 30px;
+        padding-bottom: 20px;
+        transition: all 0.4s;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+        .opc.btn--white:hover{
+        background-color: #ffffff;
+        color: #FF9F49;
+        transition: .3s;
+        }
+
+    .prueba{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+    
