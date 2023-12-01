@@ -54,7 +54,7 @@ const Mapita = ({ navigation,onDireccionChange}) => {
   });
 
   const [originAddress, setOriginAddress] = React.useState('');
-
+  const [userLocationMarker, setUserLocationMarker] = React.useState(null);
   React.useEffect(() => {
     getLocationPermission();
   }, []);
@@ -91,6 +91,25 @@ const Mapita = ({ navigation,onDireccionChange}) => {
       // Puedes mostrar un mensaje de error al usuario
     }
   }  
+  React.useEffect(() => {
+    // Obtener ubicación del usuario y establecer marcador fijo
+    const fetchUserLocation = async () => {
+      try {
+        const location = await Location.getCurrentPositionAsync({});
+        const userLocation = {
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+        };
+
+        setUserLocationMarker(userLocation);
+      } catch (error) {
+        console.error('Error al obtener la ubicación del usuario:', error.message);
+        // Puedes manejar el error si ocurre
+      }
+    };
+
+    fetchUserLocation();
+  }, []);
 
   React.useEffect(() => {
     const fetchAddresses = async () => {
@@ -122,18 +141,46 @@ const Mapita = ({ navigation,onDireccionChange}) => {
   };
 
  // Reemplaza tu función handleMarkerDragEnd con esta:
-const handleMarkerDragEnd = (event) => {
-  setOrigin(event.nativeEvent.coordinate);
-  if (mapRef.current) {
-    const newRegion = {
-      latitude: event.nativeEvent.coordinate.latitude,
-      longitude: event.nativeEvent.coordinate.longitude,
-      latitudeDelta: 0.0006, // Ajusta estos valores según tu preferencia de zoom
-      longitudeDelta: 0.0006, // Ajusta estos valores según tu preferencia de zoom
-    };
-    mapRef.current.animateToRegion(newRegion, 500); // 500 es la duración de la animación en milisegundos
+const handleMarkerDragEnd = async (event) => {
+  const newCoordinates = event.nativeEvent.coordinate;
+
+  try {
+    const newAddress = await getFormattedAddress(newCoordinates.latitude, newCoordinates.longitude, GOOGLE_MAPS_KEY);
+    
+    // Verificar si se obtuvo una nueva dirección y si está dentro de la Ciudad de México
+    if (newAddress && newAddress.includes && newAddress.includes('Ciudad de México')) {
+      setOrigin(newCoordinates);
+      if (mapRef.current) {
+        const newRegion = {
+          latitude: newCoordinates.latitude,
+          longitude: newCoordinates.longitude,
+          latitudeDelta: 0.0006,
+          longitudeDelta: 0.0006,
+        };
+        mapRef.current.animateToRegion(newRegion, 500);
+      }
+    } else {
+      // Mover el marcador de regreso a la ubicación del usuario actual
+      setOrigin({
+        latitude: origin.latitude,
+        longitude: origin.longitude,
+      });
+      if (mapRef.current) {
+        const userRegion = {
+          latitude: origin.latitude,
+          longitude: origin.longitude,
+          latitudeDelta: 0.05,
+          longitudeDelta: 0.05,
+        };
+        mapRef.current.animateToRegion(userRegion, 500);
+      }
+    }
+  } catch (error) {
+    console.error(error.message);
+    // Manejar el error al obtener la nueva dirección
   }
 };
+
 
   
   return (
@@ -148,7 +195,12 @@ const handleMarkerDragEnd = (event) => {
           longitudeDelta: 0.05,
         }}
         customMapStyle={mapStyle}
-      >
+      >   
+      {userLocationMarker && (
+        <Marker coordinate={userLocationMarker}>
+          <Image source={require('./assets/marcador2.png') }  style={styles.markerImage} />
+        </Marker>
+      )}
         <Marker
           draggable
           coordinate={origin}
@@ -157,7 +209,6 @@ const handleMarkerDragEnd = (event) => {
           <Image source={bacheImage} style={styles.markerImage} />
         </Marker>
 
-        <MapViewDirections origin={origin} apikey={GOOGLE_MAPS_KEY} />
       </MapView>
 
       <Text style={styles.addressText}>Origen: {originAddress}</Text>
