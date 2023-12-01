@@ -1,9 +1,9 @@
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyAZce3ChUu2ShdVhlrjxWhUNe5gpvaivFc",
-    authDomain: "bachecito-26-aa45d.firebaseapp.com",
-    projectId: "bachecito-26-aa45d",
-    storageBucket: "bachecito-26-aa45d.appspot.com",
-    messagingSenderId: "439227478593",
-    appId: "1:439227478593:web:9cc7fa6978493f45f8ccc0"
+  apiKey: "AIzaSyBTmAonjcSsCcNwW7S1EQI80_vut8PIK5A",
+  authDomain: "bachecito-26-2.firebaseapp.com",
+  projectId: "bachecito-26-2",
+  storageBucket: "bachecito-26-2.appspot.com",
+  messagingSenderId: "445662169591",
+  appId: "1:445662169591:web:b169f2fdef3b1719db86f2"
   };

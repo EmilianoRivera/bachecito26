@@ -58,12 +58,33 @@ export default function Login() {
       Alert.alert('¡Wow!', `Tu contraseña no puede tener más de 20 caracteres 🔐`);
     }
   };
+
+  const Cifrar = (password) => {
+    const key = 'bachecito26gemma';
+    let encryptedPassword = '';
+    for (let i = 0; i < password.length; i++) {
+      encryptedPassword += String.fromCharCode(password.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return encryptedPassword;
+  };
+  
+  const Descifrar = (encryptedPassword) => {
+    const key = 'bachecito26gemma';
+    let decryptedPassword = '';
+    for (let i = 0; i < encryptedPassword.length; i++) {
+      decryptedPassword += String.fromCharCode(encryptedPassword.charCodeAt(i) ^ key.charCodeAt(i % key.length));
+    }
+    return decryptedPassword;
+  };
+
   let credentialsSaved = false;
   const [userDetails, setUserDetails] = useState(null);
   const saveLoginInfo = async (email, password) => {
     try {
+      const PasswordC = Cifrar(password);
         await AsyncStorage.setItem('email', email);
-        await AsyncStorage.setItem('password', password);
+        await AsyncStorage.setItem('password', PasswordC);
+        console.log('Contraseña', PasswordC);
         console.log('Información de inicio de sesión guardada correctamente');
         credentialsSaved = true;
       
@@ -77,8 +98,9 @@ export default function Login() {
     try {
       if (!credentialsSaved) {
         const email = await AsyncStorage.getItem('email');
-        const password = await AsyncStorage.getItem('password');
-        if (email !== null && password !== null) {
+        const passwordE = await AsyncStorage.getItem('password');
+        if (email !== null && passwordE !== null) {
+          const password = Descifrar(passwordE);
           signInWithEmailAndPassword(Auth, email, password)
             .then((userCredential) => {
               const user = userCredential.user;
@@ -153,7 +175,7 @@ export default function Login() {
   };
   
   useEffect(() => {
-    // Verifica si existen credenciales guardadas al cargar el componente
+    // Verifica si existen credenciales guardadas al cargar el componente 
     checkLogin();
   }, []);
   
@@ -206,10 +228,7 @@ export default function Login() {
                      
                         checkLogin();
                         saveLoginInfo(Correo, Contraseña);
-                        navigation.navigate('bache', {userData});
-                        // Mostrar el modal solo si el usuario no está deshabilitado
-                
-                        
+                        navigation.navigate('bache', {userData});  
                       },
                     },
                   ]
@@ -232,40 +251,11 @@ export default function Login() {
         alert(error.message);
       });
   };
-  
-  const [loading, setLoading] = useState(false);
-
-  const getUserData = async () => {
-    setLoading(true);
-    const reportesRef = collection(db, 'usuarios');
-    const q = query(reportesRef, where('uid', '==', userData.uid));
-    try {
-      const querySnapshot = await getDocs(q);
-      querySnapshot.forEach(async (doc) => {
-        const docId = doc.id;
-        console.log('Documento encontrado:', doc.data());
-        await updateDoc(doc.ref, {
-          disabled: false,
-        })
-          .then(() => {
-            console.log('Campo disabled actualizado correctamente');
-          })
-          .catch((error) => {
-            console.error('Error al actualizar el campo disabled:', error);
-          });
-      });
-      setLoading(false);
-      // Aquí podrías hacer algo con los datos obtenidos si es necesario
-    } catch (error) {
-      console.error('Error al obtener datos del usuario:', error);
-      setLoading(false);
-    }
-  };
 
   
   const handleForgotPassword = () => {
     if (Correo) {
-      setModalVisible(true); // Mostrar el modal al solicitar recuperar contraseña
+      setModalVisible(true);
     } else {
       Alert.alert('Correo requerido', 'Por favor, ingresa tu dirección de correo electrónico para restablecer tu contraseña.');
     }
@@ -281,12 +271,11 @@ export default function Login() {
         Alert.alert('Error', 'Hubo un problema al enviar el correo de restablecimiento de contraseña. Por favor, intenta de nuevo.');
       });
   
-    setModalVisible(false); // Ocultar el modal después de enviar el correo
+    setModalVisible(false);
   };
   
-  // Función que maneja la acción cuando se elige cancelar la recuperación de contraseña
   const handleCancel = () => {
-    setModalVisible(false); // Ocultar el modal al cancelar
+    setModalVisible(false);
   };
   const [Iniciar_isPress, IniciarPressed] = useState(false);
   const IniciarScale = new Animated.Value(1);
@@ -337,7 +326,6 @@ export default function Login() {
     }, 50);
   };
 
-  //Prohibir el detrás
   const handleBackPress = () => {
     Alert.alert(
       '¡Hey!',
@@ -386,7 +374,7 @@ export default function Login() {
                 <Text style={[
                     styles.title,
                     isTitleColorChanged && {
-                      color: isButtonDisabled ? '#6F6F6F' : '#FF0000', // Cambia el color del título
+                      color: isButtonDisabled ? '#6F6F6F' : '#FF0000',
                     },
                   ]}>¡QUE BUENO ES TENERTE DE VUELTA!</Text>
                 <TextInput
@@ -431,7 +419,7 @@ export default function Login() {
                   <Text style={[
                     styles.txt3,
                     isContraseñaTextColorChanged && {
-                      color: '#FF0000', // Cambia el color del texto si el input de contraseña está presionado
+                      color: '#FF0000',
                     },
                   ]} onPress={() => handleForgotPassword()}
                   > ¿Olvidaste tu contraseña?</Text>
@@ -480,7 +468,6 @@ export default function Login() {
                   onPress={() => {
                     // Solo permite iniciar sesión si los campos no están vacíos
                     if (!isButtonDisabled) {
-                      // Lógica para iniciar sesión aquí
                       handleSignIn();
                     } else {
                       showAlert();
@@ -552,9 +539,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   buttonContainer: {
-    flexDirection: 'row', // Para que los botones estén en la misma fila
-    justifyContent: 'space-between', // Para espaciar los botones igualmente
-    marginTop: 20, // Ajusta el espaciado superior según sea necesario
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    marginTop: 20,
   },
 
   Main: {
@@ -671,7 +658,7 @@ const styles = StyleSheet.create({
   },
   
   btn_Iniciar_Disabled: {
-    backgroundColor: '#6F6F6F', // Cambia el color cuando el botón está desactivado
+    backgroundColor: '#6F6F6F',
   },
   btnTXT_Iniciar: {
     color: '#fff',
@@ -688,7 +675,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Hind',
   },
   btnTXT_Iniciar_Disabled: {
-    color: '#fff', // Cambia el color del texto cuando el botón está desactivado
+    color: '#fff',
   },
   btn_Iniciar_Press: {
     backgroundColor: '#fff',

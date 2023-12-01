@@ -18,7 +18,7 @@ web-build/
 
 # Metro
 .metro-health-check*
-
+firebase-config
 # debug
 npm-debug.*
 yarn-debug.*
