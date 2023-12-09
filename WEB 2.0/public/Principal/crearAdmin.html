@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Administrador</title>
+    <link rel="stylesheet" href="../CSS/crearAdmin.css">
+    
+</head>
+<body>
+    <div class="container">
+        <div class="column">
+            <h1>Crear Administrador</h1>
+            <form id="crear-admin" class="form-admin">
+                <input type="text" id="nombre" placeholder="Nombre(s)">
+                <input type="text" id="apmat" placeholder="Apellido Paterno">
+                <input type="text" id="appat" placeholder="Apellido Materno">
+                <input type="date" id="fechaNacimiento" placeholder="">
+                <input type="email" id="email" placeholder="Correo electrónico">
+                <input type="password" id="contraseña" placeholder="Contraseña">
+                <button type="submit" class="btn-registrar">Registrar Administrador</button>
+            </form>
+        </div>
+
+        <div class="column">
+            <h1>Administradores</h1>
+            <div id="administradores-container" class="admin-container"></div>
+        </div>
+    </div>
+
+    <script type="module" src="../JS/crearAdmin.js"></script>
+</body>
+</html>

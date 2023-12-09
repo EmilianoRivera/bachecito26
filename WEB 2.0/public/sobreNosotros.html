@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./CSS/styles.css" />
+    <!-- CSS -->
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- AOS -->
+
+    <!-- FONTAWESOME -->
+    <link rel="stylesheet" href="./CSS/fontawesome.min.css" />
+    <!-- FONTAWESOME -->
+
+    <link rel="icon" href="https://i.postimg.cc/jSkmnHwG/Icono-Pagina.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+    <title>Sobre Nosotros</title>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+  
+    <!-- HEADER -->
+
+    <!-- HERO -->
+      <section id="hero" class="container flex-row">
+        <div class="hero__content">
+          <h1 class="title">
+            Acerca de Bachecito 26
+          </h1>
+          <p class="text">
+            Proyecto desarrollado por estudiantes del Centro de
+            Estudios Científicos y Tecnológicos 9 "Juan de Dios Bátiz".
+          </p>
+          <a href="./index.html" class="btn btn-primary">Inicio</a>
+        </div>
+        <div class="hero__img">
+          <img src="./imgs/img/icon.png" alt="">
+        </div>
+      </section>
+    <!-- HERO -->
+
+    <!-- ABOUT -->
+    <section id="about"class="container flex-center flex-column">
+      <h5 class="section-subheading">Bachecito 26</h5>
+      <h2 class="section-heading text-center">
+        ¡Adiós baches! ¡Hola Bachecito 26!
+      </h2>
+      <div class="features text-center">
+        <div class="feature" style="--color: #FF9F49">
+          <div class="feature__icon">
+            <i class="fas fa-anchor"></i>
+          </div>
+          <h3 class="feature__title">Problemática</h3>
+          <p class="feature_text">
+            La negligencia y la falta de supervisión de los baches 
+            en las redes viales secundarias de la alcaldía Azcapotzalco 
+            en la Ciudad de México generan dificultades en el tráfico 
+            y un aumento en los accidentes viales, a pesar de que el programa 
+            de reparación de baches en la Ciudad de México se inició alrededor 
+            del año 2000, no se ha recibido la atención adecuada debido a la 
+            carga de trabajo causando que el problema se vaya agravando.
+          </p>
+        </div>
+        <div class="feature" style="--color: #FFD557">
+          <div class="feature__icon">
+            <i class="fa-regular fa-file-lines"></i>
+          </div>
+          <h3 class="feature__title">Objetivo</h3>
+          <p class="feature_text">
+            Desarrollar una aplicación móvil mediante la cual 
+            choferes de transporte público, automovilistas, 
+            motociclistas, ciclistas, transeúntes o cualquier 
+            otro usuario con diferente medio de transporte que 
+            circulen en las vías secundarias de la alcaldía Azcapotzalco 
+            ubicada en la CDMX, efectúen el reporte de baches encontrados 
+            en estas redes viales para que se facilite la identificación 
+            y gestión de los mismos. 
+          </p>
+        </div>
+        <div class="feature" style="--color: #949494">
+          <div class="feature__icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="feature__title">Alcance</h3>
+          <p class="feature_text">
+            El usuario podrá llenar un formulario dentro del cual 
+            se obtendrá su geolocalización facilitando así la precisión 
+            de la ubicación del bache encontrado. Una vez enviado el 
+            formulario, este quedará almacenado en una base de datos 
+            en la nube para así poder realizar una publicación del reporte 
+            en nuestro sistema web.
+          </p>
+        </div>
+      </div>
+      <div class="about__details flex-center">
+        <div class="about__details-content">
+          <h1>Propuesta</h1>
+          <p>Desarrollar una aplicación móvil mediante la cual los 
+            residentes de la alcaldía Azcapotzalco ubicada en la 
+            Ciudad de México, puedan realizar reportes de los baches 
+            localizados en las vialidades secundarias, de manera que 
+            se pueda agilizar el proceso de reportes a las autoridades 
+            correspondientes así como facilitarle al usuario la manera 
+            de realizarlo.
+          </p>
+          <p>
+            Con esto se busca mejorar el monitoreo continuo de las 
+            vías secundarias en la alcaldía Azcapotzalco y evitar 
+            accidentes provocados por éste índole.
+          </p>
+          <a href="#" class="btn btn-primary">Comenzar</a>
+        </div>
+        <div class="about__details-img">
+          <img src="./imgs/img/about.png" alt="">
+        </div>
+      </div>
+    </section>
+    <!-- ABOUT -->
+
+    <!--RULETA-->
+    <section class="container_Ruleta">
+      <div class="contCar">
+          <div id="slick-titles">
+              <ul id="titles"></ul>
+            </div>
+            <div class="slick-mobile">
+              <div>
+                <img class="img" src="https://www.xlasphaltmelbourne.com.au/wp-content/uploads/2014/10/Asphalt-cracked.jpg">
+                <div class="slick-content">
+                  <h3 class="h3">Desgaste Inicial</h3>
+                  <ul class="slick-info-list animated fadeOutDown">
+                    <p>
+                      El pavimento agrietado señala el inicio de un proceso erosivo silencioso, donde las incipientes grietas marcan la vulnerabilidad del pavimento ante el tiempo y el tráfico constante.
+                    </p>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <img class="img" src="https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/BVSIW2URW5E4XHMME5Y3COVL6Q.webp">
+                <div class="slick-content">
+                  <h3 class="h3">De Grietas a Baches</h3>
+                  <ul class="slick-info-list animated fadeOutDown">
+                    <p>
+                      Avanzando, las grietas se ensanchan y profundizan, transformándose en baches que comprometen la integridad de la superficie vial.
+                    </p>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <img class="img" src="https://totalenergies.mx/system/files/atoms/image/imagen-bache.png">
+                <div class="slick-content">
+                  <h3 class="h3">Problemas viales</h3>
+                  <ul class="slick-info-list animated fadeOutDown">
+                      <p>
+                      Una vez que las condiciones del bache empeoran más con el paso de los autos, es imposible no notar el problema al caminar o conducir por la vía afectada.
+                      </p>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                  <img class="img" src="https://doc-08-80-mymaps.googleusercontent.com/untrusted/hostedimage/o4v0dkgln6062ks0a1dndafksc/uqne3n2d0dm4u5b728l3ga0hjc/1701237417750/8TD2WW_TZHY2mXar0rHCvAHR3LuX_q0i/13326033346021241103/5AJ9UNGqKrVW9v3QCDMl97P8EgO61WOsStIgQpUJT1gb0_kyR8FedKzNe_f5yf-my-XaZTavIMN8hwFMcRQK2ooPzspKncWqhghtuie2BVmURxfDJVWksiC5iX-UG6UEwh2YR1LPup_voddCZbMBw9XtLR5WUVHZ4XZxl4ZYRAc_Tk-rSr77DM8VpyU_M1CWGx9ge8A?session=0&fife=s16383">
+                  <div class="slick-content">
+                    <h3 class="h3">Reparación</h3>
+                    <ul class="slick-info-list animated fadeOutDown">
+                      <p>
+                        Una vez que se detecta el problema y se decide por atenderlo finalmente, comienza el proceso de renovación vital con la reparación activa del bache y la restauración del pavimento a su estado óptimo.
+                      </p>
+                    </ul>
+                  </div>
+              </div>
+              <div>
+                <img class="img" src="https://commonwealthpaving.net/wp-content/uploads/2021/05/warner-robins-ga-asphalt-paving-services-pothole-patching-and-repair-1_orig.jpg">
+                <div class="slick-content">
+                  <h3 class="h3">De Bache a Superficie Restaurada</h3>
+                  <ul class="slick-info-list animated fadeOutDown">
+                    <p>
+                      El pavimento, antes afectado por grietas y baches, resplandece ahora con una vitalidad renovada, subrayando la capacidad intrínseca de nuestras infraestructuras viales para recuperarse.
+                    </p>
+                  </ul>
+                </div>
+              </div>
+              
+          </div>
+      </div>
+
+      <div class="row row--center row--margin">
+          <div class="col-md-4 col-sm-4 price-box price-box--purple">
+            <div class="price-box__wrap">
+              <div class="price-box__img"></div>
+              <h1 class="price-box__title">
+                ¿De dónde surge Bachecito 26?
+              </h1>
+              <p class="price-box__feat">
+                  Este proyecto surge a partir de la negligencia y la falta de supervisión de los baches 
+                  en las redes viales de la Ciudad de México, ya que generan dificultades en el tráfico y un 
+                  aumento en los accidentes viales. A pesar de que el programa de reparación de baches 
+                  en la Ciudad de México se inició alrededor del año 2000, no se ha recibido la atención 
+                  adecuada debido a la carga de trabajo causando que el problema se vaya agravando especialmente
+                  en vías secundarias .
+              </p>
+              
+               <div class="price-box__btn">
+              <a id="a" class="btn btn--purple btn--width">¡Saber más!</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    <!--RULETA-->
+
+    <!-- SERVICES -->
+    <section 
+      id="services" 
+      style="
+        background: url(./imgs/img/services-bg.png); 
+        background-repeat: no-repeat; 
+        background-position: top;
+        background-size: 100% 80%;">
+      <div class="container">
+        <h5 class="section-subheading">¿Qué hace</h5>
+        <h2 class="section-heading right">BACHECITO 26?
+        </h2>
+        <div class="services">
+          <div class="service">
+            <div class="service__icon">
+              <i class="fa-solid fa-user" style="color: #ff9f49; height: 100%;"></i>
+            </div>
+            <h3 class="services__title">Registrar Usuarios</h3>
+            <p class="service__text">
+              Los residentes de la Ciudad de México pueden cear una cuenta e iniciar sesión en la aplicación.
+            </p>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="service">
+            <div class="service__icon">
+              <i class="fa-solid fa-bullhorn" style="color: #ff9f49; height: 100%;"></i>
+            </div>
+            <h3 class="services__title">Reportar Baches</h3>
+            <p class="service__text">
+              Los usuarios de la aplicación pueden reportar los baches encontrados en la  CDMX
+            </p>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="service">
+            <div class="service__icon">
+              <i class="fa-regular fa-clock" style="color: #ff9f49; height: 100%;"></i>
+            </div>
+            <h3 class="services__title">Guardar Historial</h3>
+            <p class="service__text">
+              Bachecito 26 cuenta con un módulo de Historial para los reportes hechos por sus usuarios.
+            </p>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="service">
+            <div class="service__icon">
+              <i class="fa-solid fa-pen" style="color: #ff9f49; height: 100%;"></i>
+            </div>
+            <h3 class="services__title">Editar Datos</h3>
+            <p class="service__text">
+              Nuestra aplicación cuenta con un sistema de edición de datos de Nombre y Apellidos.
+              Los datos como Fecha de Nacimiento, Correo o Contraseña no son posibles de editar.
+            </p>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="service">
+            <div class="service__icon">
+              <i class="fa-solid fa-flag" style="color: #ff9f49; height: 100%;"></i>
+            </div>
+            <h3 class="services__title">Enviar Reporte</h3>
+            <p class="service__text">
+              Todos los reportes de bache realizados por los usuarios de nuestra aplicación
+              son eviados a este sistema web en el apartado de "Reportes".
+            </p>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+          <div class="service">
+            <div class="service__icon">
+              <i class="fa-solid fa-map-location" style="color: #ff9f49; height: 100%;"></i>
+            </div>
+            <h3 class="services__title">Mostrar Mapa</h3>
+            <p class="service__text">
+              La aplicación te mostrará tu ubicación en un mapa mediante la API de Google Maps
+            </p>
+            <div class="arrow-icon">
+              <i class="fas fa-arrow-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- SERVICES -->
+
+    <!-- PROJECTS 
+    <section id="projects"
+      style="background: url(assets/img/projects-bg.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 100% 100%;
+      background-attachment: fixed;"
+    >
+      <div class="container">
+        <h5 class="section-subheading">Nuestros Proyectos</h5>
+        <h2 class="section-heading">Recha nuetras innovaciones y propuestas para problemas</h2>
+        <div class="projects">
+          <div class="project">
+            <div class="project__img">
+              <img src="assets/img/project-1.png" alt="">
+            </div>
+            <div class="project-content">
+              <h3 class="project__category">Desarrollo</h3>
+              <h3 class="project__title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Accusamus alias fugit debitis excepturi voluptas sint. 
+              </h3>
+              <p class="project__text">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Amet provident cupiditate nobis aspernatur alias quam esse, 
+                neque in assumenda, similique consequatur minus. Iure iste 
+                et eaque cumque magni inventore autem!
+              </p>
+              <a href="#" class="btn btn-secondary">Ver detalles</a>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project__img">
+              <img src="assets/img/project-2.png" alt="">
+            </div>
+            <div class="project-content">
+              <h3 class="project__category">Desarrollo</h3>
+              <h3 class="project__title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Accusamus alias fugit debitis excepturi voluptas sint. 
+              </h3>
+              <p class="project__text">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Amet provident cupiditate nobis aspernatur alias quam esse, 
+                neque in assumenda, similique consequatur minus. Iure iste 
+                et eaque cumque magni inventore autem!
+              </p>
+              <a href="#" class="btn btn-secondary">Ver detalles</a>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project__img">
+              <img src="assets/img/project-3.png" alt="">
+            </div>
+            <div class="project-content">
+              <h3 class="project__category">Desarrollo</h3>
+              <h3 class="project__title">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+                Accusamus alias fugit debitis excepturi voluptas sint. 
+              </h3>
+              <p class="project__text">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                Amet provident cupiditate nobis aspernatur alias quam esse, 
+                neque in assumenda, similique consequatur minus. Iure iste 
+                et eaque cumque magni inventore autem!
+              </p>
+              <a href="#" class="btn btn-secondary">Ver detalles</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     PROJECTS -->
+
+    <!-- TEAM -->
+
+    <!-- TEAM -->
+
+    <!-- TESTIMONIALS -->
+
+    <!-- TESTIMONIALS -->
+
+    <!-- CONTACT -->
+
+    <!-- CONTACT -->
+
+    <!-- FOOTER -->
+
+    <!-- FOOTER -->
+
+    <!-- FONTAWESOME -->
+    <script src="./JS/fontawesome.min.js"></script>
+    <!-- FONTAWESOME -->
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS -->
+
+    <!-- SCRIPTS -->
+    <script src="assets/js/script.js"></script>
+    <!-- SCRIPTS -->
+
+    <script>
+      AOS.init();
+    </script>
+
+<script>
+  'use strict';
+  var slick = $(".slick-mobile");
+  slick.on("init", function(){
+      $(".slick-mobile div[data-slick-index='0'] .slick-content ul").removeClass("fadeOutDown");
+      $(".slick-slide").each(function(){
+      if($(this).attr("data-slick-index")==="0"){
+          $("#slick-titles ul").append("<li class='animated' data-index='" + $(this).attr("data-slick-index") + "'>" + $(this).find("h3").text() + "</li>");
+      }else{
+          $("#slick-titles ul").append("<li class='animated fadeOutUp' data-index='" + $(this).attr("data-slick-index") + "'>" + $(this).find("h3").text() + "</li>");
+      }
+      });
+  });
+
+  slick.slick({
+      centerMode: true,
+      arrows: false,
+      centerPadding: "40px",
+      slidesToShow: 1,
+      mobileFirst: true
+  });
+
+  slick.on("beforeChange", function(event, slick, currentSlide, nextSlide){
+
+      var num_slides = $(".slick-slide:not(.slick-cloned)").length;
+      var sliding_right = false;
+
+      if( currentSlide<nextSlide ) {
+      sliding_right = true;
+      if( (nextSlide===(num_slides-1) && currentSlide==0) ) {
+          sliding_right = false;
+      }
+      } else {
+      sliding_right = false;
+      if( (currentSlide===(num_slides-1) && nextSlide==0) ) {
+          sliding_right = true;
+      }
+      }
+
+      if( sliding_right ) {
+      console.log("----------------------------------------");
+      console.log("IF: " + currentSlide + " < " + nextSlide );
+      $("#slick-titles ul li[data-index='"+currentSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeOutDown");
+      $(".slick-mobile div[data-slick-index='"+currentSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeOutDown");
+      $("#slick-titles ul li[data-index='"+nextSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeInDown");
+      $(".slick-mobile div[data-slick-index='"+nextSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeInUp");
+      } else {
+      console.log("----------------------------------------");
+      console.log("ELSE: " + currentSlide + " > " + nextSlide );
+      $("#slick-titles ul li[data-index='"+currentSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeOutUp");
+      $(".slick-mobile div[data-slick-index='"+currentSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeOutDown");
+      $("#slick-titles ul li[data-index='"+nextSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeInUp");
+      $(".slick-mobile div[data-slick-index='"+nextSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeInUp");
+      }
+
+  });
+</script>
+  </body>
+</html>

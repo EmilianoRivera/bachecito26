@@ -1,0 +1,59 @@
+        body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: #fff;
+    margin-top: 5%;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.column {
+    flex: 1;
+    margin: 0 3vw;
+}
+
+h1 {
+    color: #FF9F49;
+    text-align: center;
+}
+
+#crear-admin, #administradores-container {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #f1f1f1;
+    padding: 3vw;
+    border-radius: 6vh;
+}
+
+#crear-admin input {
+    width: 90%;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 2vh;
+    border: none;
+    background-color: #ffffff;
+}
+
+#crear-admin button, .administrador button {
+    width: 95%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4vh;
+    cursor: pointer;
+}
+
+#crear-admin button {
+    background-color: #FF9F49;
+    color: #fff;
+}
+
+.administrador button {
+    background-color: #FF4D35;
+    color: #fff;
+}

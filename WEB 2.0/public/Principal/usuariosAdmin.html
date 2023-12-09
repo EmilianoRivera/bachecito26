@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Usuarios</title>
+    <style>
+        body{
+            padding: 5vw;
+    font-family: 'Nunito', sans-serif;
+
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th{
+            color: #ffffff;
+        }
+        th, td {
+            border: 3px solid #ffffff;
+            border-radius: .8vw;
+            padding: 8px;
+            background-color: #f1f1f1;
+            text-align: left;
+        }
+        th {
+            background-color: #FF9F49;
+        }
+        h1{
+            color: #FF9F49;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Listado de Usuarios</h1>
+    <table id="usuarios-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellido Paterno</th>
+                <th>Apellido Materno</th>
+                <th>No de reportes</th>
+                <!-- Puedes agregar más columnas según los datos que deseas mostrar -->
+            </tr>
+        </thead>
+        <tbody id="usuarios-body">
+            <!-- Aquí se agregarán dinámicamente los usuarios -->
+        </tbody>
+    </table>
+
+    <script type="module" src="../JS/usuariosAdmin.js"></script>
+</body>
+</html>

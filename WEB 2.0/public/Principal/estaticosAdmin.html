@@ -1,0 +1,193 @@
+<!--Aqui están el navbar y el iframe para mostrarlo en todos lados-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="icon" href="https://i.postimg.cc/jSkmnHwG/Icono-Pagina.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;700&display=swap">
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
+    body {
+    display: grid;
+    font-size: 2.2rem;
+    place-items: center;
+    overflow: hidden;
+    }
+    iframe {
+        border: none;
+        background-color: #ffffff;
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+    }
+    
+.menu-hamburguer {
+    z-index: 1000;
+    display: flex;
+    position: absolute;
+    background-color: #000000;
+    width: 100%;
+}
+
+.menu {
+    background: rgb(0, 0, 0);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 0 0 #000000, 0 0 0 0 #000000;
+    transition: box-shadow 1.1s cubic-bezier(.19, 1, .22, 1);
+}
+
+.menu:hover {
+    box-shadow: 0 0 0 8px #0c0c0ca6, 0 0 0 8px #fff;
+}
+
+.hamburguer {
+    position: relative;
+    display: block;
+    background: #ffffff;
+    width: 30px;
+    height: 2px;
+    transition: .5s ease-in-out;
+}
+
+.hamburguer::before,
+.hamburguer::after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: .5s ease-in-out;
+}
+
+.hamburguer::before {
+    top: -10px;
+}
+
+.hamburguer::after {
+    bottom: -10px;
+}
+
+input {
+    display: none;
+}
+
+input:checked~ul {
+    opacity: 1;
+    visibility: visible;
+}
+
+input:checked~label .menu {
+    box-shadow: 0 0 0 130vw #fff, 0 0 0 100vh #fff;
+}
+
+input:checked~label .hamburguer {
+    transform: rotate(45deg);
+}
+
+input:checked~label .hamburguer::before {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+input:checked~label .hamburguer::after {
+    transform: rotate(90deg);
+    bottom: 0;
+}
+
+.ham {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    opacity: 0;
+    transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
+    visibility: hidden;
+}
+
+.guer {
+    color: #525252;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 40px;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    text-transform: uppercase;
+    transition: .3s;
+}
+
+.guer:hover {
+    color: #FD5C0F;
+    font-size: 48px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 40px;
+    transition: .3s;
+}
+    </style>
+<body>
+    <div class="menu-hamburguer">
+        <input type="checkbox" id="menu-hamburguer">
+        <label for="menu-hamburguer">
+            <div class="menu">
+                <span class="hamburguer"></span>
+            </div>
+        </label>
+    
+        <ul class="ham">
+            <li class="bur">
+                <a class="guer" href="./main.html" target="MainFrame" onclick="cerrarMenu()">Inicio</a>
+            </li>
+            <li class="bur">
+                <a class="guer" href="./usuariosAdmin.html" target="MainFrame" onclick="cerrarMenu()">Cuentas</a>
+            </li>
+            <li class="bur">
+                <a class="guer" href="./reportes.html" target="MainFrame" onclick="cerrarMenu()">Reportes</a>
+            </li>
+            <li class="bur">
+                <a class="guer" href="./crearAdmin.html" target="MainFrame" onclick="cerrarMenu()">Administradores</a>
+            </li>
+            <li class="bur">
+                <a class="guer" href="../index.html" onclick="cerrarMenu()">Cerrar Sesión</a>
+            </li>
+        </ul>
+    </div>
+    <div class="contenedor">
+        <iframe id="MainFrame" name="MainFrame" src="./main.html" width="900" height="auto"></iframe>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        function cerrarMenu() {
+            // Desmarcar el checkbox al hacer clic en un enlace
+            document.getElementById('menu-hamburguer').checked = false;
+        }
+
+        $(document).ready(function () {
+            $("#menuIcon").click(function (event) {
+                event.preventDefault();
+                $("#mainNavBar a:not(:first-child)").toggleClass("show");
+            });
+        });
+    </script>
+</body> 
+</html>

@@ -93,42 +93,32 @@ const onGetUser = (callback) => {
 
 window.addEventListener('DOMContentLoaded', async () => {
     try {
-        // Agregar el estado "no publicado" antes de mostrar los reportes
-        const querySnapshot = await obtenerUser();
-        querySnapshot.forEach(async (doc) => {
-            const usuario = doc.data();
-
-        });
-
-        // Mostrar los reportes
+        // Mostrar los administradores
         const unsubscribe = onGetUser((querySnapshot) => {
-     
             administradoresContainer.innerHTML = "";
-            let i = 0;
             querySnapshot.forEach((doc) => {
                 const usuario = doc.data();
                 const userId = doc.id;
-                administradoresContainer.innerHTML += 
-                ` <div class="administrador">
-                <p>Nombre: ${usuario.nombre}</p>
-                <p>Apellido Paterno: ${usuario.apellidoPaterno}</p>
-                <p>Apellido Materno: ${usuario.apellidoMaterno}</p>
-                <p>Correo: ${usuario.correo}</p>
-                <p>Rol: ${usuario.rol}</p>
-                <button onclick=" borrarAdministrador('${userId}') ">Borrar Administrador</button>
-                <a href="editarAdmin.html">Actualizar Administrador</a>
-                </div>`;
 
+                // Verificar si el usuario tiene el rol "Admin"
+                if (usuario.rol === "Admin") {
+                    administradoresContainer.innerHTML += 
+                    `<div class="administrador">
+                        <p>Nombre: ${usuario.nombre}</p>
+                        <p>Apellido Paterno: ${usuario.apellidoPaterno}</p>
+                        <p>Apellido Materno: ${usuario.apellidoMaterno}</p>
+                        <p>Correo: ${usuario.correo}</p>
+                        <p>Rol: ${usuario.rol}</p>
+                        <button onclick="borrarAdministrador('${userId}')">Borrar Administrador</button>
+                        <a href="editarAdmin.html">Actualizar Administrador</a>
+                    </div>`;
+                }
             });
-
         });
-
-        // Puedes usar `unsubscribe` para dejar de escuchar los cambios en algún momento
-        // Por ejemplo, si dejas la página o dejas de necesitar las actualizaciones en tiempo real
-        // unsubscribe();
     } catch (error) {
-        console.error('Error al obtener reportes:', error);
+        console.error('Error al obtener administradores:', error);
     }
-})
+});
+
 
 

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre nosotros</title>
+    <link rel="icon" href="https://i.postimg.cc/jSkmnHwG/Icono-Pagina.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <style>
+        body{ 
+            background:#ffffff;
+            font-family: 'Baloo Thambi 2', sans-serif;
+        }
+        
+        img{
+            width: 100%;
+            height: 30vw;
+        }
+
+        h2{
+            color: #FF9F49;
+        }
+
+        .h3{
+            color: #FF9F49;
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+
+        .container{
+            margin-top: 6vw;
+            margin-bottom: 15vw;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            align-content: center;
+        }
+
+        a {
+            padding: 10px;
+            text-decoration: none;
+            color: #FF9F49;
+            margin-bottom: 10px;
+            border: 2px solid #274c7700;
+            border-radius: 10px;
+            transition: .2s;
+        }
+
+        a:hover {
+            border: 2px solid #D1D1D1;
+            transform: scale(.99);
+            transition: .3s;
+        }
+
+        .content{
+            align-items:flex-start;
+        }
+
+        .contCar{ 
+            width:40%;
+            margin:3vw; 
+            display: inline-block;
+        }
+
+        .slick-list, .slick-slide { 
+            outline:none; 
+        }
+
+        .slick-slider{
+            border-top:12px solid #fff; 
+        }
+
+        .slick-mobile .slick-slide img {
+            opacity:0.6; transition:all .6s; -moz-transform:scale(0.9); -ms-transform:scale(0.9); -o-transform:scale(0.9); -webkit-transform:scale(0.9); transform:scale(0.9); cursor:grab;
+        }
+
+        .slick-mobile .slick-slide:not(.slick-center) img { 
+            -webkit-filter:grayscale(0.2); -webkit-filter:grayscale(20%); filter:gray; filter:grayscale(20%); -webkit-filter:blur(2px); cursor:grab;
+        }
+
+        .slick-mobile .slick-slide.slick-active.slick-center img {
+            position:relative; opacity:1; -moz-transform:scale(1.08); -ms-transform:scale(1.08); -o-transform:scale(1.08); -webkit-transform:scale(1.08); transform:scale(1.08); z-index:2; -webkit-filter:blur(0); cursor:grab;
+        }
+
+        #slick-titles {
+            position:relative; min-height:3rem; text-transform:uppercase; font-weight:bolder; font-size:0.8em; font-family: 'Alegreya Sans SC', sans-serif; 
+        }
+
+        #slick-titles ul {
+            font-size:1.2em; line-height:2.6em; list-style:none; width:100%; text-align:left; padding-left:0;
+        }
+
+        #slick-titles ul li {
+            position:absolute; width:100%; text-align:center; border:none !important;
+        }
+
+        .slick-mobile .slick-content{
+            padding:30px 25px 0px;
+            text-align: justify;
+        }
+
+        .slick-mobile .slick-content h3 {
+            display:none; 
+            font-family: 'Alegreya Sans SC', sans-serif;
+        }
+
+        body::-webkit-scrollbar{
+                width: 10px;
+                height: 100%;
+                background:#fffcfc;
+            }
+            
+        body::-webkit-scrollbar-thumb{
+            background: #D1D1D1;
+            border-radius: 5px;
+        }
+
+        .row--center{
+          max-width: 45%;
+          margin: 2vw;
+        }
+        
+        .row--margin{
+          margin-top:45px;
+        }
+
+        @media screen and (max-width:767px){
+          .price-box {
+            padding: 20px 35px;
+            margin-bottom: 50px;
+          }
+        }
+
+        .price-box{
+          padding: 20px 25px;  
+          margin-bottom: 5vw;
+        }
+
+        .price-box__wrap{
+          background-color: #fff;
+          border-radius:15px;
+          box-shadow:  0 4px 8px 0px rgba(0,0,0,0.2);   
+          padding: 35px 35px 40px 35px;
+          text-align:center;
+          transition: all 0.4s;
+          -webkit-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          -ms-transition: all 0.4s;
+          -o-transition: all 0.4s;
+        }
+
+        .price-box__img{
+          display: inline-block;
+        }
+
+        .price-box__img{
+          width:130px;
+          height:130px;
+          border-radius:50%;
+          background-position: center;
+            background-size:cover;
+          background-repeat:no-repeat;
+        }
+
+        .price-box--purple .price-box__img{
+          background-image: url("https://i.postimg.cc/25qGwZMP/Cuenta.png");
+
+        }
+
+        .price-box__title{
+          font-size:22px;
+          letter-spacing:1px;
+          color: #FF9F49;
+        }
+
+        .price-box__feat {
+            margin-top: 5px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .price-box__wrap:hover {
+          backface-visibility: hidden;
+          transform: scale(1.05, 1.05);
+          box-shadow: 0px 30px 18px -8px rgba(0, 0, 0,0.1);
+        }
+
+        .price-box:hover .btn--purple{
+          display: block;
+          margin-top: 5vw;
+          padding: 1vw;
+          color: #fff;
+          cursor: pointer;
+        }
+
+        .btn--purple {
+          display: none;
+          background-color: #FF9F49;
+          padding: 1rem;
+          border-radius: 6vh;
+          cursor: pointer;
+        }
+
+        .btn--purple:hover{
+            background-color: #D1D1D1;
+          cursor: pointer;
+        }
+
+        .btn--white{
+          background-color: #fff;
+          border: 1px solid #D1D1D1;
+          color: #FF9F49;
+          cursor: pointer;
+        }
+
+        .price-box__btn {
+            position: absolute;
+            bottom: -17px;
+            left: 50%;
+            margin-left: -55px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="contCar">
+            <div id="slick-titles">
+                <ul id="titles"></ul>
+              </div>
+              <div class="slick-mobile">
+                <div>
+                  <img src="https://www.xlasphaltmelbourne.com.au/wp-content/uploads/2014/10/Asphalt-cracked.jpg">
+                  <div class="slick-content">
+                    <h3>Desgaste Inicial</h3>
+                    <ul class="slick-info-list animated fadeOutDown">
+                      <p>
+                        El pavimento agrietado señala el inicio de un proceso erosivo silencioso, donde las incipientes grietas marcan la vulnerabilidad del pavimento ante el tiempo y el tráfico constante.
+                      </p>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <img src="https://cloudfront-eu-central-1.images.arcpublishing.com/diarioas/BVSIW2URW5E4XHMME5Y3COVL6Q.webp">
+                  <div class="slick-content">
+                    <h3>De Grietas a Baches</h3>
+                    <ul class="slick-info-list animated fadeOutDown">
+                      <p>
+                        Avanzando, las grietas se ensanchan y profundizan, transformándose en baches que comprometen la integridad de la superficie vial.
+                      </p>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                  <img src="https://totalenergies.mx/system/files/atoms/image/imagen-bache.png">
+                  <div class="slick-content">
+                    <h3>Problemas viales</h3>
+                    <ul class="slick-info-list animated fadeOutDown">
+                        <p>
+                        Una vez que las condiciones del bache empeoran más con el paso de los autos, es imposible no notar el problema al caminar o conducir por la vía afectada.
+                        </p>
+                    </ul>
+                  </div>
+                </div>
+                <div>
+                    <img src="https://doc-08-80-mymaps.googleusercontent.com/untrusted/hostedimage/o4v0dkgln6062ks0a1dndafksc/uqne3n2d0dm4u5b728l3ga0hjc/1701237417750/8TD2WW_TZHY2mXar0rHCvAHR3LuX_q0i/13326033346021241103/5AJ9UNGqKrVW9v3QCDMl97P8EgO61WOsStIgQpUJT1gb0_kyR8FedKzNe_f5yf-my-XaZTavIMN8hwFMcRQK2ooPzspKncWqhghtuie2BVmURxfDJVWksiC5iX-UG6UEwh2YR1LPup_voddCZbMBw9XtLR5WUVHZ4XZxl4ZYRAc_Tk-rSr77DM8VpyU_M1CWGx9ge8A?session=0&fife=s16383">
+                    <div class="slick-content">
+                      <h3>Reparación</h3>
+                      <ul class="slick-info-list animated fadeOutDown">
+                        <p>
+                          Una vez que se detecta el problema y se decide por atenderlo finalmente, comienza el proceso de renovación vital con la reparación activa del bache y la restauración del pavimento a su estado óptimo.
+                        </p>
+                      </ul>
+                    </div>
+                </div>
+                <div>
+                  <img src="https://commonwealthpaving.net/wp-content/uploads/2021/05/warner-robins-ga-asphalt-paving-services-pothole-patching-and-repair-1_orig.jpg">
+                  <div class="slick-content">
+                    <h3>De Bache a Superficie Restaurada</h3>
+                    <ul class="slick-info-list animated fadeOutDown">
+                      <p>
+                        El pavimento, antes afectado por grietas y baches, resplandece ahora con una vitalidad renovada, subrayando la capacidad intrínseca de nuestras infraestructuras viales para recuperarse.
+                      </p>
+                    </ul>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="row row--center row--margin">
+            <div class="col-md-4 col-sm-4 price-box price-box--purple">
+              <div class="price-box__wrap">
+                <div class="price-box__img"></div>
+                <h1 class="price-box__title">
+                  ¿De dónde surge Bachecito 26?
+                </h1>
+                <p class="price-box__feat">
+                    Este proyecto surge a partir de la negligencia y la falta de supervisión de los baches 
+                    en las redes viales de la Ciudad de México, ya que generan dificultades en el tráfico y un 
+                    aumento en los accidentes viales. A pesar de que el programa de reparación de baches 
+                    en la Ciudad de México se inició alrededor del año 2000, no se ha recibido la atención 
+                    adecuada debido a la carga de trabajo causando que el problema se vaya agravando especialmente
+                    en vías secundarias .
+                </p>
+                
+                 <div class="price-box__btn">
+                <a class="btn btn--purple btn--width">¡Saber más!</a>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script>
+        'use strict';
+        var slick = $(".slick-mobile");
+        slick.on("init", function(){
+            $(".slick-mobile div[data-slick-index='0'] .slick-content ul").removeClass("fadeOutDown");
+            $(".slick-slide").each(function(){
+            if($(this).attr("data-slick-index")==="0"){
+                $("#slick-titles ul").append("<li class='animated' data-index='" + $(this).attr("data-slick-index") + "'>" + $(this).find("h3").text() + "</li>");
+            }else{
+                $("#slick-titles ul").append("<li class='animated fadeOutUp' data-index='" + $(this).attr("data-slick-index") + "'>" + $(this).find("h3").text() + "</li>");
+            }
+            });
+        });
+
+        slick.slick({
+            centerMode: true,
+            arrows: false,
+            centerPadding: "40px",
+            slidesToShow: 1,
+            mobileFirst: true
+        });
+
+        slick.on("beforeChange", function(event, slick, currentSlide, nextSlide){
+
+            var num_slides = $(".slick-slide:not(.slick-cloned)").length;
+            var sliding_right = false;
+
+            if( currentSlide<nextSlide ) {
+            sliding_right = true;
+            if( (nextSlide===(num_slides-1) && currentSlide==0) ) {
+                sliding_right = false;
+            }
+            } else {
+            sliding_right = false;
+            if( (currentSlide===(num_slides-1) && nextSlide==0) ) {
+                sliding_right = true;
+            }
+            }
+
+            if( sliding_right ) {
+            console.log("----------------------------------------");
+            console.log("IF: " + currentSlide + " < " + nextSlide );
+            $("#slick-titles ul li[data-index='"+currentSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeOutDown");
+            $(".slick-mobile div[data-slick-index='"+currentSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeOutDown");
+            $("#slick-titles ul li[data-index='"+nextSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeInDown");
+            $(".slick-mobile div[data-slick-index='"+nextSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeInUp");
+            } else {
+            console.log("----------------------------------------");
+            console.log("ELSE: " + currentSlide + " > " + nextSlide );
+            $("#slick-titles ul li[data-index='"+currentSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeOutUp");
+            $(".slick-mobile div[data-slick-index='"+currentSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeOutDown");
+            $("#slick-titles ul li[data-index='"+nextSlide+"']").removeClass("fadeOutDown fadeOutUp fadeInUp fadeInDown").addClass("fadeInUp");
+            $(".slick-mobile div[data-slick-index='"+nextSlide+"'] .slick-content ul").removeClass("fadeOutDown fadeInUp").addClass("fadeInUp");
+            }
+
+        });
+      </script>
+</body>
+</html>

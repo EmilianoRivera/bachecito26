@@ -24,7 +24,7 @@ loginForm.addEventListener('submit', async (e) => {
             console.log('Datos del usuario:', datos);
             
             if (datos) {
-                window.location.href = "../Principal/main.html"; // Redirige aquí, dentro del forEach
+                window.location.href = "../Principal/mainU.html"; // Redirige aquí, dentro del forEach
             } else {
                 console.log('No se encontraron datos para el usuario:', user.uid);
                 // Podrías manejar este caso específico, por ejemplo, mostrar un mensaje de error o redirigir a otra página de error.

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Editar Administrador</title>
+    </head>
+    <body>
+    <h1>Editar Administrador</h1>
+
+    <!-- Contenedor para mostrar y editar los datos del administrador -->
+    <div id="datos-admin-container">
+        <h3>Datos del Administrador</h3>
+        <p id="nombre-admin"></p>
+        <p id="apellido-paterno-admin"></p>
+        <p id="apellido-materno-admin"></p>
+
+        <!-- Botón para abrir el formulario de edición -->
+        <button id="editar">Editar</button>
+    </div>
+
+    <!-- Formulario de edición (inicialmente oculto) -->
+    <div id="formulario-edicion" style="display: none;">
+        <form id="formulario">
+            <h3>Editar Datos del Administrador</h3>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+            
+            <label for="apellido-paterno">Apellido Paterno:</label>
+            
+            <input type="text" id="apellido-paterno" required>
+            
+            <label for="apellido-materno">Apellido Materno:</label>
+            <input type="text" id="apellido-materno" required>
+
+            <button type="submit">Guardar Cambios</button>
+            <button id="cerrar">Cerrar</button>
+        </form>
+    </div>
+    <script type="module" src="../JS/editarAdmin.js" defer></script>
+
+</body>
+</html>

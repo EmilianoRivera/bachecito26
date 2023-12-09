@@ -7,27 +7,35 @@
 </head>
 <body>
     <h1>Editar Administrador</h1>
- <div class="administradores-container">
 
+    <!-- Contenedor para mostrar y editar los datos del administrador -->
+    <div id="datos-admin-container">
+        <h3>Datos del Administrador</h3>
+        <p id="nombre-admin"></p>
+        <p id="apellido-paterno-admin"></p>
+        <p id="apellido-materno-admin"></p>
 
- </div>
- <!-- Agrega este formulario en tu HTML -->
-<div id="editar-admin-form" style="display: none;">
-    <h2>Editar Administrador</h2>
-    <form id="formulario-editar">
-        <label for="editar-nombre">Nombre:</label>
-        <input type="text" id="editar-nombre" required>
+        <!-- Botón para abrir el formulario de edición -->
+        <button onclick="mostrarFormularioEdicion()">Editar</button>
+    </div>
 
-        <label for="editar-appat">Apellido Paterno:</label>
-        <input type="text" id="editar-appat" required>
+    <!-- Formulario de edición (inicialmente oculto) -->
+    <div id="formulario-edicion" style="display: none;">
+        <h3>Editar Datos del Administrador</h3>
+        <form id="formulario">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
 
-        <label for="editar-apmat">Apellido Materno:</label>
-        <input type="text" id="editar-apmat" required>
+            <label for="apellido-paterno">Apellido Paterno:</label>
+            <input type="text" id="apellido-paterno" required>
 
-        <button type="submit">Guardar Cambios</button>
-    </form>
-</div>
+            <label for="apellido-materno">Apellido Materno:</label>
+            <input type="text" id="apellido-materno" required>
 
+            <button type="submit">Guardar Cambios</button>
+            
+        </form>
+    </div>
 
     <script type="module" src="../JS/editarAdmin.js"></script>
 </body>

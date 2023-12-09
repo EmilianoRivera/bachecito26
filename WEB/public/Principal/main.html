@@ -3,18 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
+    <title>Home Admin</title>
+    <link rel="stylesheet" href="../CSS/main.css">
 </head>
 <body>
- 
-    <div class="container">
-        <a href="reportes.html">Ver Reportes</a>
+  
+    <main>
+        <ul class='slider' >
+          <li class='item' style="background-image: url('https://i.postimg.cc/1RrpDcKy/zyro-image-28.jpg')">
+            <div class='content'>
+              <h2 class='title'>Administrar reportes</h2>
+              <p class='description'> Visualiza y administra todos los reportes que han realizado los usuarios de Bachecito 26. Encontrarás las direcciones
+                la foto del bache reportado y su descripción, teniendo la opción de eliminarlos</p>
+              <a href="reportes.html">Ir a los reportes →</a>
+            </div>
+          </li>
+            
+          <li class='item' style="background-image: url('https://i.postimg.cc/bw0YSK3Y/zyro-image-26.jpg')">
+            <div class='content'>
+              <h2 class='title'>Bienvenido, Administrador</h2>
+              <p class='description'>  ¿Que vas a hacer hoy?  <br>
+                Recuerda que es importante salvaguardar la información de nuestros usuarios de una manera segura, el uso que le des a las opciones 
+                de administrador debe de ser siempre con responsabilidad y debes tener un uso y cuiado óptimo también del programa.
+              </p>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://i.postimg.cc/y6fKNMCz/zyro-image-29.jpg');">
+            <div class='content'>
+              <h2 class='title'>Administrar Usuarios</h2>
+              <p class='description'> Visualiza y administra todas las cuentas registradas así como las acciones que han realizado los usuarios de 
+                Bachecito 26. Encontrarás sus datos y sus reportes, teniendo la opción de eliminarlos.
+              </p>
+              <a href="usuariosAdmin.html">Ver los usuarios →</a>
+            </div>
+          </li>
+          <li class='item' style="background-image: url('https://i.postimg.cc/PrHSj5S5/zyro-image-27.jpg')">
+            <div class='content'>
+              <h2 class='title'>Añadir administradores</h2>
+              <p class='description'> Permite agregar otras cuentas con el rol de administrador, tendrán las mismas funcionalidades
+                que tu al momento de entrar al panel de administrador
+              </p>
+              <a href="crearAdmin.html">Agregar administrador →</a>
+            </div>
+          </li>
+          
+        </ul>
+        <nav class='nav'>
+          <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+          <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+        </nav>
+      </main>
+      
+      <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+      <script>
+        const slider = document.querySelector('.slider');
+        function activate(e) {
+        const items = document.querySelectorAll('.item');
+        e.target.matches('.next') && slider.append(items[0])
+        e.target.matches('.prev') && slider.prepend(items[items.length-1]);
+        }
 
-        <a href="crearAdmin.html">Añadir Administrador</a>
-    </div>
-
-
-
-
+        document.addEventListener('click',activate,false);
+      </script>
 </body>
 </html>

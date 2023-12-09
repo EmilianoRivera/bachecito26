@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Nunito', sans-serif;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+}
+
+.main-container{
+    background-color: #ffffff;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: center;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.container{
+    width: 60%;
+    height: 80vh;
+    border-radius: 6vh;
+    box-shadow: 1rem 1rem 1rem 0 rgba(0, 0, 0, 0.082);
+    display: flex;
+}
+
+.form{
+    width: 50%;
+    height: 100%;
+    background-color: #F1F1F1;
+    border-top-right-radius: 6vh;
+    border-bottom-right-radius: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    border-top-left-radius: 6vh;
+    border-bottom-left-radius: 6vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#loginForm{
+    margin: 4vw;
+    width: 100%;
+}
+
+form input {
+background-color: #ffffff;
+border: 2px solid #ff4d3500;
+padding: 10px 3%;
+margin: 6px 0;
+width: 100%;
+border-radius: 10px;
+transition: .3s;
+
+}
+
+.apellido-container {
+    display: flex;
+    justify-content: space-between;
+    width: 107%;
+}
+
+#appat{
+    background-color: #ffffff;
+    border: 2px solid #ff4d3500;
+    padding: 12px 3%;
+    margin: 6px 0;
+    width: 40%; /* Ajusta el ancho según tus necesidades */
+    border-radius: 10px;
+    transition: .3s;
+}
+
+#apmat {
+    background-color: #ffffff;
+    border: 2px solid #ff4d3500;
+    padding: 12px 3%;
+    margin: 6px 0;
+    width: 40%; 
+    float: right; /* Ajusta el ancho según tus necesidades */
+    border-radius: 10px;
+    transition: .3s;
+}
+
+#appat:hover{
+    border: 2px solid #FF4D35;
+    transition: .3s;
+} 
+
+#apmat:hover{
+    border: 2px solid #FF4D35;
+    transition: .3s;
+}
+
+#appat::after{
+    border: 2px solid #FF4D35;
+    transition: .3s;
+}
+
+#apmat::after{
+    border: 2px solid #FF4D35;
+    transition: .3s;
+}
+
+input:hover {
+border: 2px solid #FF4D35;
+transition: .3s;
+}
+
+input::after {
+    border: 2px solid #FF4D35;
+    transition: .3s;
+    }
+
+button {
+border-radius: 20px;
+border: 1px solid #6F6F6F;
+background-color: #6F6F6F;
+color: #FFFFFF;
+font-size: 12px;
+font-weight: bold;
+padding: 12px 45px;
+letter-spacing: 1px;
+text-transform: uppercase;
+transition: .3s;
+width: 106%;
+}
+
+button:hover{
+    background-color: #FF4D35;
+    border: 1px solid #FF4D35;
+    transition: .3s;
+}
+
+button:active {
+transform: scale(0.8);
+}
+
+button:focus {
+outline: none;
+}
+
+button.ghost {
+background-color: transparent;
+border-color: #FFFFFF;
+}
+
+h1{
+    margin-bottom: 10px;
+    padding-top: 0%;
+    text-align: center;
+    color: #6F6F6F;
+    font-weight: bolder;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.6em;
+}
+a{
+    font-size:small;
+}
+
+h2{
+    text-align: center;
+    color: #fff;
+    font-weight:900;
+    font-family: 'Nunito', sans-serif;
+    font-size: 2em;
+}
+.h2{
+    text-align: center;
+    color: #ffffff;
+    background-color: #ffb92cab;
+    padding: 3%;
+    border-radius: 10vh;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: 'Nunito', sans-serif;
+    font-size: .5em;
+    transition: .3s;
+}
+.h2:hover{
+    transition: .3s;
+    background-color: #ffb92c;
+}
+.capa{
+    width: 100%;
+    height: 100%;
+    background-color: #00000025;
+    display: flex;
+    border-top-left-radius: 6vh;
+    border-bottom-left-radius: 6vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Agrega estos estilos al final de tu archivo CSS */
+
+/* Estilo para el contenedor del checkbox y el label */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Estilo específico para el checkbox */
+  #termsCheckbox {
+    margin-right: 5px; /* Ajusta el margen entre el checkbox y el label según tus necesidades */
+  }
+  label{
+    font-size: smaller ;
+    width: 900%;
+  }
+  

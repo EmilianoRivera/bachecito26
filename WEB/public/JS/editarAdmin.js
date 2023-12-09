@@ -1,100 +1,110 @@
-import { db, collection, getDocs, updateDoc, query, where } from '../JS/firebase.js';
+import { db, collection, query, where, getDocs, doc, getDoc, updateDoc } from '../JS/firebase.js';
 
-// Obtener datos de usuarios con rol "admin"
-const obtenerAdmins = async () => {
+// Variable global para almacenar el ID del administrador
+let adminId;
+
+// Función para obtener el ID del primer usuario con rol "Admin"
+async function obtenerIdAdmin() {
     try {
-        const adminsCollectionRef = collection(db, 'usuarios');
-        const adminsQuery = query(adminsCollectionRef, where('rol', '==', 'admin'));
-        const snapshot = await getDocs(adminsQuery);
+        const usuariosCollectionRef = collection(db, 'usuarios');
+        const adminQuery = query(usuariosCollectionRef, where('rol', '==', 'Admin'));
+        const adminSnapshot = await getDocs(adminQuery);
 
-        const admins = [];
-        snapshot.forEach((doc) => {
-            admins.push({
-                id: doc.id,
-                data: doc.data()
-            });
-        });
-
-        return admins;
-    } catch (error) {
-        console.error('Error al obtener administradores:', error);
-        throw error;
-    }
-};
-    
-// Mostrar administradores en el contenedor
-const mostrarAdministradores = async () => {
-    try {
-        const administradoresContainer = document.getElementById('editar-admin-form');
-        const admins = await obtenerAdmins();
-
-        administradoresContainer.innerHTML = ''; // Limpiar el contenido anterior
-
-        admins.forEach((admin) => {
-            administradoresContainer.innerHTML += `
-                <div class="administrador">
-                    <p>ID: ${admin.id}</p>
-                    <p>Nombre: ${admin.data.nombre}</p>
-                    <p>Correo: ${admin.data.correo}</p>
-                    <!-- Agregar más campos según sea necesario -->
-
-                    <!-- Botón para modificar datos -->
-                    <button onclick="modificarDatos('${admin.id}')">Modificar Datos</button>
-                </div>`;
-        });
-    } catch (error) {
-        console.error('Error al mostrar administradores:', error);
-    }
-};
-
-// Función para modificar datos de un administrador
-const modificarDatos = async (adminId) => {
-    try {
-        // Aquí puedes implementar la lógica para modificar los datos del administrador
-        // Por ejemplo, podrías abrir un formulario de edición o hacer una llamada a otra función
-
-        console.log(`Modificar datos del administrador con ID: ${adminId}`);
-    } catch (error) {
-        console.error('Error al modificar datos del administrador:', error);
-    }
-};
-
-// Llama a la función para mostrar los administradores al cargar la página
-mostrarAdministradores();
-
-
-const mostrarFormularioEdicion = (adminId) => {
-    const formularioEdicion = document.getElementById('editar-admin-form');
-    formularioEdicion.style.display = 'block';
-
-    const formularioEditar = document.getElementById('formulario-editar');
-    formularioEditar.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        const nuevoNombre = document.getElementById('editar-nombre').value;
-        const nuevoApellidoPaterno = document.getElementById('editar-appat').value;
-        const nuevoApellidoMaterno = document.getElementById('editar-apmat').value;
-
-        try {
-            // Actualizar datos en la base de datos
-            await updateDoc(collection(db, 'usuarios', adminId), {
-                nombre: nuevoNombre,
-                apellidoPaterno: nuevoApellidoPaterno,
-                apellidoMaterno: nuevoApellidoMaterno
-            });
-
-            console.log('Datos del administrador actualizados correctamente.');
-
-            // Ocultar el formulario de edición después de actualizar
-            formularioEdicion.style.display = 'none';
-
-            // Volver a mostrar la lista actualizada de administradores
-            mostrarAdministradores();
-        } catch (error) {
-            console.error('Error al actualizar datos del administrador:', error);
+        if (!adminSnapshot.empty) {
+            // Devuelve el ID del primer usuario encontrado con rol "Admin"
+            return adminSnapshot.docs[0].id;
+        } else {
+            console.error('No se encontraron usuarios con rol "Admin".');
+            return null;
         }
-    });
-};
+    } catch (error) {
+        console.error('Error al obtener ID de usuario con rol "Admin":', error);
+        return null;
+    }
+}
 
-// Llama a la función para mostrar los administradores al cargar la página
-mostrarAdministradores();
+// Función para obtener los datos del administrador por su ID
+async function obtenerDatosAdmin(adminId) {
+    try {
+        const adminDocRef = doc(db, 'usuarios', adminId);
+        const adminDoc = await getDoc(adminDocRef);
+
+        if (adminDoc.exists()) {
+            return adminDoc.data();
+        } else {
+            console.error('No se encontraron datos para el administrador con ID:', adminId);
+            return null;
+        }
+    } catch (error) {
+        console.error('Error al obtener datos del administrador:', error);
+        return null;
+    }
+}
+
+
+// Función para mostrar el formulario de edición
+function mostrarFormularioEdicion() {
+    const formularioEdicion = document.getElementById('formulario-edicion');
+    formularioEdicion.style.display = 'block';
+}
+// Función para mostrar los datos del administrador en el contenedor
+async function mostrarDatosAdmin() {
+    try {
+        // Obtener el ID del primer usuario con rol "Admin"
+        adminId = await obtenerIdAdmin();
+
+        if (adminId) {
+            // Obtener y mostrar los datos del administrador
+            const datosAdmin = await obtenerDatosAdmin(adminId);
+
+            const nombreAdminElement = document.getElementById('nombre-admin');
+            nombreAdminElement.textContent = `Nombre: ${datosAdmin.nombre}`;
+
+            const apellidoPaternoAdminElement = document.getElementById('apellido-paterno-admin');
+            apellidoPaternoAdminElement.textContent = `Apellido Paterno: ${datosAdmin.apellidoPaterno}`;
+
+            const apellidoMaternoAdminElement = document.getElementById('apellido-materno-admin');
+            apellidoMaternoAdminElement.textContent = `Apellido Materno: ${datosAdmin.apellidoMaterno}`;
+
+            // Actualizar valores en el formulario de edición
+            document.getElementById('nombre').value = datosAdmin.nombre;
+            document.getElementById('apellido-paterno').value = datosAdmin.apellidoPaterno;
+            document.getElementById('apellido-materno').value = datosAdmin.apellidoMaterno;
+        }
+    } catch (error) {
+        console.error('Error al mostrar datos del administrador:', error);
+    }
+}
+
+
+// Llamada inicial para mostrar los datos del administrador
+mostrarDatosAdmin();
+
+// Manejar la lógica de actualización al enviar el formulario
+const formulario = document.getElementById('formulario');
+formulario.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Obtener los nuevos valores del formulario
+    const nuevoNombre = document.getElementById('nombre').value;
+    const nuevoApellidoPaterno = document.getElementById('apellido-paterno').value;
+    const nuevoApellidoMaterno = document.getElementById('apellido-materno').value;
+
+    try {
+        // Actualizar los datos del administrador en la base de datos
+        await updateDoc(doc(db, 'usuarios', adminId), {
+            nombre: nuevoNombre,
+            apellidoPaterno: nuevoApellidoPaterno,
+            apellidoMaterno: nuevoApellidoMaterno
+        });
+
+        // Actualizar los datos mostrados en el contenedor
+        mostrarDatosAdmin();
+
+        // Ocultar el formulario de edición después de actualizar
+        document.getElementById('formulario-edicion').style.display = 'none';
+    } catch (error) {
+        console.error('Error al actualizar datos del administrador:', error);
+    }
+});
+    

@@ -1,20 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-</head>
-<body>
-    <!--Ahorita lo añado-->
-    <form action="">
-        <input type="text" name="" id="" placeholder="Nombre(s)">
-        <input type="text" name="" id="" placeholder="Appellido Paterno">
-        <input type="text" name="" id="" placeholder="Appellido Materno">
-        <input type="date" name="" id="" placeholder="Fecha de Nacimiento">
-        <input type="email" name="" id="" placeholder="Correo electrónico">
-        <input type="password" name="" id="" placeholder="Contraseña">
-    </form>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+        <title>Registro</title>
+        <link rel="stylesheet" href="../CSS/registro.css">
+        <script src="./valid.js"></script>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="container">
+                
+                <div class="image" style="background-image:url('https://i.postimg.cc/L8TGQ19M/zyro-image-30.jpg'); background-size: cover; background-position: center;">
+                <div class="capa">
+                    <h2>¿Ya tienes una cuenta? <br> <a class="h2" href="./inicio.html">¡Inicia Sesión!</a></h2>
+                </div>
+                </div>
 
-</body>
-</html>
+                <div class="form">
+                    <form id="loginForm" onsubmit="return validarRegistro(loginForm)">
+                        <h1>¡BIENVENIDO!</h1>
+                        <input type="text" id="nombre" name="nombre" placeholder="Nombre(s)" maxlength="50" minlength="3" onkeypress="return validarN(event)">
+                        <div class="apellido-container">
+                            <input type="text" id="appat" name="appat" placeholder="Apellido Paterno" maxlength="20" minlength="3" onkeypress="return validarA(event)">
+                            <input type="text" id="apmat" name="apmat" placeholder="Apellido Materno" maxlength="20" minlength="3" onkeypress="return validarA(event)">
+                        </div>
+                        <input type="date" id="nacimiento" name="nacimiento" placeholder="Fecha de Nacimiento" >
+                        <input type="text" id="username" name="username" placeholder="Correo" maxlength="100" minlength="10" onkeypress="return validarC(event)">
+                        <input type="password" id="password" name="password" placeholder="Contraseña" maxlength="20" minlength="5" onkeypress="return validarCon(event)"> 
+                        <br><br>
+                        <button type="submit" >Registrarse</button>
+                    </form>
+                    <script type="module" src="./registro.js"></script>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+                var loginForm = document.getElementById("loginForm");
+                var usernameInput = document.getElementById("username");
+                var passwordInput = document.getElementById("password");
+                var h1Element = document.querySelector("h1");
+                var submitButton = document.querySelector("button");
+
+                function updateColors() {
+                    if (usernameInput.value !== "" && passwordInput.value !== "") {
+                        h1Element.style.color = "#FF4D35"; 
+                        submitButton.style.backgroundColor = "#FF4D35"; 
+                        submitButton.style.borderColor = "#FF4D35"; 
+             
+                    } else {
+                        h1Element.style.color = "#6F6F6F"; 
+                        submitButton.style.backgroundColor = "#6F6F6F"; 
+                        submitButton.style.borderColor = "#6F6F6F"; 
+                    }
+                }
+
+                loginForm.addEventListener("input", updateColors);
+
+                loginForm.addEventListener("submit", function(event) {
+                    event.preventDefault(); 
+                    updateColors();
+                });
+
+
+            });
+        </script>
+    </body>
+    </html>
